@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.0.1",
   "private": true,
+  "proxy": "http://localhost:8080",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -11,7 +12,9 @@
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-router-native": "^5.2.0",
+    "wrcom": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
