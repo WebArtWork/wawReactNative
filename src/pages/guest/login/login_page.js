@@ -17,7 +17,7 @@ const Login =(props)=>{
 		<View className="auth-wrapper">
 			<View className="auth">
 			<Text className="auth-title">Log In</Text>
-				<Text className="auth-form">   {/* Форма onSubmit = {this.submitHandle}*/}
+				<Text className="auth-form"> 
 					<View className="waw-input mb15">
 						<Text>EMAIL:</Text>
 						<TextInput name="email"
@@ -40,7 +40,7 @@ const Login =(props)=>{
 				</Text>
 				<View className="auth-link">
 					<Link to =''><Text>Forgot password?</Text></Link>
-					<Link to ='/'><Text>Don't have an account?</Text></Link>
+					<Link to ='/signup'><Text>Don't have an account?</Text></Link>
 				</View>
 			</View>
 		</View>

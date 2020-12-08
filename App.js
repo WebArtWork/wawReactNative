@@ -2,9 +2,12 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {NativeRouter as Router, Switch, Route} from 'react-router-native';
 import {HttpService} from 'wrcom';
+import user from './src/services/user.service'
+
 
 import Login  from './src/pages/guest/login/login_container';
-import Profile from './src/pages/user/profile/profile';
+import SignUp from './src/pages/guest/sign/sign';
+import Profile_Page from './src/pages/user/profile/profile_container';
 
 
 const App: () => React$Node = () => {
@@ -15,7 +18,8 @@ const App: () => React$Node = () => {
         <Router>
           <Switch>
             <Route exact path="/" component ={Login}/>
-             <Route path="/profile" component ={Profile}/>
+            <Route  path="/signup" component ={SignUp}/>
+            <Route path="/profile" component ={Profile_Page}/>
           </Switch>
         </Router>
       </View>
