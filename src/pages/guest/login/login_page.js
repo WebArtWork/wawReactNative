@@ -14,11 +14,11 @@ const Login =(props)=>{
 	}
 	return (
 	<>
-		<View className="auth-wrapper">
-			<View className="auth">
-			<Text className="auth-title">Log In</Text>
-				<Text className="auth-form"> 
-					<View className="waw-input mb15">
+		<View style={styles.auth_wrapper}>
+			<View style={styles.auth}>
+			<Text style={styles.auth_title}>Log In</Text>
+				<Text style={styles.auth_form}> 
+					<View style={styles.waw_input, styles.mb15}>
 						<Text>EMAIL:</Text>
 						<TextInput name="email"
 						placeholder="email"
@@ -26,7 +26,7 @@ const Login =(props)=>{
 						defaultValue = {props.user.email}
 						/>
 					</View>
-					<View className="waw-input mb15">
+					<View style={styles.waw_input, styles.mb15}>
 						<Text>PASSWORD:</Text>	
 						<TextInput secureTextEntry={true} 
 						name="password" 
@@ -34,13 +34,13 @@ const Login =(props)=>{
 						onChangeText= {(value) =>{props.changeHandlerPass(value)}} 
 						defaultValue = {props.user.password}/>
 					</View>
-					<View className="auth-form__btn">
-						<Button className="waw-btn _primary" type="submit" title ="Login" onPress={SubmitForm}/> 
+					<View style={styles.auth_form__btn}>
+						<Button style={styles.waw_btn, styles._primary} type="submit" title ="Login" onPress={SubmitForm}/> 
 					</View>
 				</Text>
-				<View className="auth-link">
-					<Link to =''><Text>Forgot password?</Text></Link>
-					<Link to ='/signup'><Text>Don't have an account?</Text></Link>
+				<View style={styles.auth_link}>
+					<Link to ='reset'><Text>Forgot password?</Text></Link>
+					<Link to ='signup'><Text>Don't have an account?</Text></Link>
 				</View>
 			</View>
 		</View>
@@ -50,5 +50,34 @@ const Login =(props)=>{
 export default Login
 
 const styles = StyleSheet.create({
+	auth_wrapper:{
 
+	},
+	auth:{
+		
+	},
+	auth_title:{
+
+	},
+	auth_form:{
+
+	},
+	waw_input:{
+
+	},
+	mb15:{
+
+	},
+	auth_form__btn:{
+
+	},
+	waw_btn:{
+
+	},
+	_primary:{
+
+	},
+	auth_link:{
+
+	}
 });

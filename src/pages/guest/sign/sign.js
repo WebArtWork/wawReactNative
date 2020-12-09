@@ -13,34 +13,62 @@ const Sign_Page =(props)=>{
 			props.submitHandle (event)
 	}
 	return (<>
-		<View className="auth-wrapper">
-		<View className="auth">
-		<Text className="auth-title">Sign up</Text>
-	<View className="auth-form">   {/* onSubmit ={submitHandle}*/}
-	<View className="waw-input mb15">
-	<Text>Email:</Text>
-	<TextInput  name="email" placeholder="email" defailtValue={props.user.email} onChangeText={props.changeHandlerEmail(value)}/>
+	<View style={styles.auth_wrapper}>
+		<View style={styles.auth}>
+		<Text style={styles.auth_title}>Sign up</Text>
+			<Text style={styles.auth_form}> 
+				<View style={styles.waw_input, styles.mb15}>
+					<Text>Email:</Text>
+					<TextInput  name="email" placeholder="email" defailtValue={props.user.email} onChangeText={(value) => {props.changeHandlerEmail(value)}}/>
+				</View>
+				<View style={styles.waw_input, styles.mb15}>
+					<Text>Password:</Text>
+					<TextInput  type="password" placeholder="Password" name="password" defailtValue={props.user.password} onChangeText={(value) =>{props.changeHandlerPass(value)}}/>
+				</View>
+				<View style={styles.auth_form__btn}>
+					<Button style={styles.waw_btn, styles._primary} type="submit" title="Sign" onPress={SubmitForm} />
+				</View>
+			</Text>
+			<View style={styles.auth_link}>
+				<Text>Already has an account?</Text>
+				<Link to='/'><Text>Sign in</Text></Link>
+			</View>
+		</View>
 	</View>
-	<View className="waw-input mb15">
-	<Text>Password:</Text>
-	<TextInput  type="password" placeholder="Password" name="password" defailtValue={props.user.password} onChangeText={props.changeHandlerPass(value)}/>
-	</View>
-	<View className="auth-form__btn">
-		<Button className="waw-btn _primary" type="submit" title="Sign" onPress={SubmitForm} />
-	</View>
-	</View>
-	<View className="auth-link">
-	<Text>Already has an account?</Text>
-	<Link to='/'><Text>Sign in</Text></Link>
-	</View>
-	</View>
-	</View>
-
 	</>)
 }
 
 export default Sign_Page
 
 const styles = StyleSheet.create({
+	auth_wrapper:{
 
+	},
+	auth:{
+
+	},
+	auth_title:{
+
+	},
+	auth_form:{
+
+	},
+	waw_input:{
+
+	},
+	mb15:{
+
+	},
+	auth_form__btn:{
+
+	},
+	waw_btn:{
+
+	},
+	_primary:{
+
+	},
+	auth_link:{
+
+	}
 });

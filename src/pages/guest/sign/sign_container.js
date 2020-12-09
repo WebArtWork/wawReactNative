@@ -5,7 +5,7 @@ import Sign_Page from './sign'
 
 class SignContainer extends React.Component{
 	state ={
-		user_reg: { email: 'abs', password: 'asvb'},
+		user_reg: { email: '', password: ''},
 		redirect: false,
 		reload: false
 	}

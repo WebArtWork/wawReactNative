@@ -40,6 +40,8 @@ class LoginContainer extends React.Component {
 
 
 			this.setState({ redirect: true});
+		
+
 		window.http.post('/api/user/status', this.state.user_reg, (resp)=>{
 			if(resp.email && resp.pass){	
 				console.log(resp)
@@ -64,12 +66,13 @@ class LoginContainer extends React.Component {
 	}
 	render(){
 		console.log('start');
-		if(this.state.redirect){
+		let {redirect, redirectsingup} = this.state;
+		if(redirect){
 			return <Redirect to='profile'/>
 		}
-		// else if(redirectsingup){
-		// 	return <Redirect to='singup'/>
-		// }
+		else if(redirectsingup){
+			return <Redirect to='singup'/>
+		}
 		return <>
 			<LoginPage 
 				changeHandlerEmail = { (email)=> this.setState({email: email})}
