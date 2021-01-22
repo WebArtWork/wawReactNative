@@ -1,0 +1,13 @@
+{
+	"name": "wawReact",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"private": true,
+	"dependencies": {
+		"mongoose": "^5.10.15",
+		"waw": "*",
+		"wrcom": "^1.0.1"
+	}
+}
