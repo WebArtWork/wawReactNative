@@ -15,7 +15,7 @@ export default function http (config){
 				body: JSON.stringify(doc)
 			})
 			.then((resp)=>{
-				return resp.json() }) 
+				return resp.json()}) 
 			.then(callback)
 			.then((resp) =>{
 				console.log('Created Type is sent successfully');

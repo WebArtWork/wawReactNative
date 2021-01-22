@@ -1,26 +1,17 @@
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
  export default function user(){
- 	// async function getFromAsyncStore(){
- 	// 	const get = await AsyncStorage.getItem("waw_user")
- 	// }
+ 	
 	 const us = {
 		is: {},
 		data: {},
 		users: [],
 		update: ()=>{
-			//window.core.afterWhile(us, us.save);
 			window.http.post('/api/user/update', {
 				name: us.name,
 				data: us.data
 			}, (resp)=>{});		
 		},
-		// save: ()=>{
-		// 	window.http.post('/api/user/update', {
-		// 		name: us.name,
-		// 		data: us.data
-		// 	}, (resp)=>{});			
-		// },
 		change_password: (oldPass, newPass)=>{
 			window.http.post('/api/user/changePassword', {
 				newPass: newPass,
@@ -32,7 +23,7 @@ import {AsyncStorage} from 'react-native';
 		},
 		logout: ()=>{
 			window.http.get('/api/user/logout');
-			  AsyncStorage.removeItem('waw_user');
+			AsyncStorage.removeItem('waw_user');
 			//window.render.call('logout');
 		},
 		create: (user)=>{
@@ -45,60 +36,22 @@ import {AsyncStorage} from 'react-native';
 				}
 			}	
 			window.http.post('/api/user/deleteadmin',  {_id: id}, (resp)=>{
-				//window.render.call('user list');
+				window.render.call('user list');
 			});
 		},
 		set: user=>{
 			for(let each in user){
 				us[each] = user[each];
 			}
-			if(!us.data) us.data={};
+			return us.data;
+			if(!us.data) return us.data={};
 		}
 	};
 	window.us = us;
 	if(AsyncStorage.getItem("waw_user")){
-		//us.set(JSON.parse(AsyncStorage.getItem("waw_user"));
+		us.set(AsyncStorage.getItem("waw_user"));
 		window.http.get('/api/user/me', us.set);
 	}
-
-	// window.mongo.get('user', users=>{
-
-	// });
-	// window.mongo.on('user post', ()=>{
-	// 	window.render.call('my page');
-	// });
-	// window.mongo.fetch('user', {name: 'me'}, user=>{
-
-	// });
-	// window.us.fetch = function(_id){
-	// 	return this.mongo.fetch('user', {_id: _id});
-		/*
-		if(this._users[_id]) return this._users[_id];
-		else this._users[_id] = {};
-		window.mongo.fetch('user', {_id: _id}, user=>{
-			for(let each in user){
-				this._users[_id][each] = user[each];
-			}
-			window.render.call();
-		});
-		return this._users[_id];
-		*/
-	//}
-	// window.mongo.create('user', {email: 'crackeraki@gmail.com'}, user=>{
-
-	// });
-	// window.mongo.update('user', {email: 'crackeraki@gmail.com'}, user=>{
-
-	// });
-	// window.mongo.delete('user', {_id: 'dqw15q4wdqdw654qdw6qw4d'}, user=>{
-
-	// });
-
-	/*
-		<div>{{post.author}}</div> dwq564dqw98d4qw9d4wq98
-		<div>{{window.us.fetch(post.author).name}}</div>
-	*/
-
 	window.http.get('/api/user/get', users=>{
 		us.users = users;
 		us._users = {};
